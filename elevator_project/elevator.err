@@ -1,8 +1,8 @@
-Warning[205] C:\USERS\JAMES1515\DESKTOP\ELEVATOR_PROJECT\ELEVATOR.ASM 2 : Found directive in column 1. (LIST)
-Warning[205] C:\USERS\JAMES1515\DESKTOP\ELEVATOR_PROJECT\ELEVATOR.ASM 3 : Found directive in column 1. (RADIX)
-Message[302] C:\USERS\JAMES1515\DESKTOP\ELEVATOR_PROJECT\ELEVATOR.ASM 51 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\JAMES1515\DESKTOP\ELEVATOR_PROJECT\ELEVATOR.ASM 52 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[305] C:\USERS\JAMES1515\DESKTOP\ELEVATOR_PROJECT\ELEVATOR.ASM 187 : Using default destination of 1 (file).
-Message[305] C:\USERS\JAMES1515\DESKTOP\ELEVATOR_PROJECT\ELEVATOR.ASM 192 : Using default destination of 1 (file).
-Message[305] C:\USERS\JAMES1515\DESKTOP\ELEVATOR_PROJECT\ELEVATOR.ASM 196 : Using default destination of 1 (file).
-Warning[205] C:\USERS\JAMES1515\DESKTOP\ELEVATOR_PROJECT\ELEVATOR.ASM 199 : Found directive in column 1. (END)
+Warning[205] C:\USERS\1517901_INS\DOCUMENTS\PIC\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 2 : Found directive in column 1. (LIST)
+Warning[205] C:\USERS\1517901_INS\DOCUMENTS\PIC\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 3 : Found directive in column 1. (RADIX)
+Message[302] C:\USERS\1517901_INS\DOCUMENTS\PIC\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 51 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\1517901_INS\DOCUMENTS\PIC\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 52 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] C:\USERS\1517901_INS\DOCUMENTS\PIC\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 232 : Using default destination of 1 (file).
+Message[305] C:\USERS\1517901_INS\DOCUMENTS\PIC\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 237 : Using default destination of 1 (file).
+Message[305] C:\USERS\1517901_INS\DOCUMENTS\PIC\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 241 : Using default destination of 1 (file).
+Warning[205] C:\USERS\1517901_INS\DOCUMENTS\PIC\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 244 : Found directive in column 1. (END)
