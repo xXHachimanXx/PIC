@@ -1,11 +1,11 @@
 MPLINK 4.35, Linker
-Linker Map File - Created Fri May 31 18:12:45 2019
+Linker Map File - Created Fri May 31 18:29:22 2019
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
-                   .org_0       code   0x000000    program   0x000152
-                   .cinit    romdata   0x0000a9    program   0x000004
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000154
   .config_2007_ELEVATOR.O       code   0x002007    program   0x000002
 
 
@@ -13,36 +13,36 @@ Linker Map File - Created Fri May 31 18:12:45 2019
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x0000aa      
+                            0x000000    0x0000a9      
                             0x002007    0x002007      
-            172 out of 2183 program addresses used, program memory utilization is 7%
+            171 out of 2183 program addresses used, program memory utilization is 7%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   ATRASO   0x000082    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                  ATRASO1   0x000088    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                  ATRASO2   0x00008d    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                  ATRASO3   0x000092    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-             ATRASO_BOTAO   0x00009f    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO1   0x0000a3    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO2   0x0000a6    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-        BOTAO_PRESSIONADO   0x00009b    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                 CONTINUA   0x000099    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                    DESCE   0x00009a    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                   ATRASO   0x000083    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO1   0x000089    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO2   0x00008e    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO3   0x000093    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             ATRASO_BOTAO   0x0000a0    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO1   0x0000a4    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO2   0x0000a7    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+        BOTAO_PRESSIONADO   0x00009c    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                 CONTINUA   0x00009a    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                    DESCE   0x00009b    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
                    INICIO   0x000001    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-            PRIMEIROANDAR   0x000026    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-           PRIMEIRO_ANDAR   0x00001a    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-              QUARTOANDAR   0x000062    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                   REPETE   0x00000b    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-             SEGUNDOANDAR   0x000034    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-            SEGUNDO_ANDAR   0x000019    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                      TER   0x00001d    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-            TERCEIROANDAR   0x000048    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-           TERCEIRO_ANDAR   0x000018    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-             TESTAR_BOTAO   0x000097    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            PRIMEIROANDAR   0x000027    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+           PRIMEIRO_ANDAR   0x00001b    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+              QUARTOANDAR   0x000063    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                   REPETE   0x00000c    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             SEGUNDOANDAR   0x000035    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            SEGUNDO_ANDAR   0x00001a    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                      TER   0x00001e    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            TERCEIROANDAR   0x000049    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+           TERCEIRO_ANDAR   0x000019    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             TESTAR_BOTAO   0x000098    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
 
 
 
@@ -50,25 +50,25 @@ Linker Map File - Created Fri May 31 18:12:45 2019
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
                    INICIO   0x000001    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                   REPETE   0x00000b    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-           TERCEIRO_ANDAR   0x000018    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-            SEGUNDO_ANDAR   0x000019    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-           PRIMEIRO_ANDAR   0x00001a    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                      TER   0x00001d    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-            PRIMEIROANDAR   0x000026    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-             SEGUNDOANDAR   0x000034    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-            TERCEIROANDAR   0x000048    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-              QUARTOANDAR   0x000062    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                   ATRASO   0x000082    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                  ATRASO1   0x000088    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                  ATRASO2   0x00008d    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                  ATRASO3   0x000092    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-             TESTAR_BOTAO   0x000097    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                 CONTINUA   0x000099    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-                    DESCE   0x00009a    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-        BOTAO_PRESSIONADO   0x00009b    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-             ATRASO_BOTAO   0x00009f    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO1   0x0000a3    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO2   0x0000a6    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                   REPETE   0x00000c    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+           TERCEIRO_ANDAR   0x000019    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            SEGUNDO_ANDAR   0x00001a    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+           PRIMEIRO_ANDAR   0x00001b    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                      TER   0x00001e    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            PRIMEIROANDAR   0x000027    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             SEGUNDOANDAR   0x000035    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            TERCEIROANDAR   0x000049    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+              QUARTOANDAR   0x000063    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                   ATRASO   0x000083    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO1   0x000089    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO2   0x00008e    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO3   0x000093    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             TESTAR_BOTAO   0x000098    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                 CONTINUA   0x00009a    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                    DESCE   0x00009b    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+        BOTAO_PRESSIONADO   0x00009c    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             ATRASO_BOTAO   0x0000a0    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO1   0x0000a4    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO2   0x0000a7    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
 
 
