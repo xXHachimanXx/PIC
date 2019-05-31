@@ -1,0 +1,548 @@
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;************** TRABALHIN ZIKA (help) GGEZ *****************
+Warning[205]: Found directive in column 1. (LIST)
+                      00002 LIST   P=PIC16F628A
+Warning[205]: Found directive in column 1. (RADIX)
+                      00003 RADIX DEC       
+                      00004 #INCLUDE <P16F628A.INC>
+                      00001         LIST
+                      00002 ; P16F628A.INC  Standard Header File, Version 1.10    Microchip Technology, Inc.
+                      00265         LIST
+                      00266 
+2007   3F10           00005         __CONFIG H'3F10'
+                      00006 
+                      00007         CBLOCK  0x20    ;ENDEREÇO INICIAL DA MEMÓRIA DE
+                      00008                                         ;USUÁRIO
+  00000020            00009         CONTADOR1
+  00000021            00010         CONTADOR2
+  00000022            00011         CONTADOR3
+  00000023            00012         CONTADOR_BOTAO
+  00000024            00013         CONTADOR_BOTAO1
+                      00014 
+                      00015         ENDC                    ;FIM DO BLOCO DE MEMÓRIA        
+                      00016 
+                      00017         #DEFINE BOTAO PORTA,2 ;PORTA DO BOTÃO
+                      00018                                           ; 0 -> PRESSIONADO
+                      00019                                           ; 1 -> LIBERADO
+                      00020 
+                      00021         #DEFINE TERREO PORTB,0  ;PORTA DO LED TERREO
+                      00022                                         ; 0 -> APAGADO
+                      00023                                         ; 1 -> ACESO    
+                      00024 
+                      00025         #DEFINE PRIMEIRO PORTB,1        ;PORTA DO LED PRIMEIRO ANDAR
+                      00026                                         ; 0 -> APAGADO
+                      00027                                         ; 1 -> ACESO    
+                      00028 
+                      00029         #DEFINE SEGUNDO PORTB,2 ;PORTA DO LED SEGUNDO ANDAR
+                      00030                                         ; 0 -> APAGADO
+                      00031                                         ; 1 -> ACESO    
+                      00032 
+                      00033         #DEFINE TERCEIRO PORTB,3        ;PORTA DO LED TERCEIRO ANDAR
+                      00034                                         ; 0 -> APAGADO
+                      00035                                         ; 1 -> ACESO    
+                      00036 
+                      00037         #DEFINE QUARTO PORTB,4  ;PORTA DO LED QUARTO ANDAR
+                      00038                                         ; 0 -> APAGADO
+                      00039                                         ; 1 -> ACESO    
+                      00040 
+                      00041         #DEFINE CONTROLE PORTB,5 ;PORTA DO LED CONTROLE
+                      00042                                         ; 0 -> APAGADO
+                      00043                                         ; 1 -> ACESO    
+                      00044         
+                      00045         ORG     0x00            ;ENDEREÇO INICIAL DE PROCESSAMENTO
+0000   2???           00046         GOTO    INICIO
+                      00047                 
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0001                  00048 INICIO
+0001   0185           00049         CLRF    PORTA           ;LIMPA O PORTA
+0002   0186           00050         CLRF    PORTB           ;LIMPA O PORTB
+0003   1683           00051         BSF STATUS, RP0                 ;ALTERA PARA O BANCO 1
+0004   3004           00052         MOVLW   B'00000100'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0005   0085           00053         MOVWF   TRISA           ;DEFINE RA2 COMO ENTRADA E DEMAIS COMO SAÍDAS
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0006   0186           00054         CLRF    TRISB           ;DEFINE TODO O PORTB COMO SAÍDA
+0007   018B           00055         CLRF    INTCON          ;TODAS AS INTERRUPÇÕES DESLIGADAS
+0008   1283           00056         BCF STATUS, RP0 ;RETORNA PARA O BANCO 0
+0009   3007           00057         MOVLW   B'00000111'
+000A   009F           00058         MOVWF   CMCON           ;DEFINE O MODO DO COMPARADOR ANALÓGICO
+                      00059 
+000B                  00060 REPETE
+000B   2???           00061         CALL TER
+000C   0000           00062         NOP
+000D   2???           00063         CALL PRIMEIROANDAR
+000E   0000           00064         NOP
+000F   2???           00065         CALL SEGUNDOANDAR
+0010   0000           00066         NOP
+0011   2???           00067         CALL TERCEIROANDAR
+0012   0000           00068         NOP
+0013   2???           00069         CALL QUARTOANDAR
+0014   0000           00070         NOP
+0015   2???           00071         CALL TERCEIROANDAR
+0016   0000           00072         NOP
+0017   2???           00073         CALL SEGUNDOANDAR
+0018   0000           00074         NOP
+0019   2???           00075         CALL PRIMEIROANDAR
+001A   0000           00076         NOP
+001B   2???           00077         CALL TER
+001C   2???           00078         GOTO REPETE ;DELAY DE 1S
+                      00079 
+001D                  00080 TER
+001D   1406           00081         BSF TERREO
+001E   1686           00082         BSF CONTROLE
+001F   2???           00083         CALL ATRASO ;DELAY DE 1S
+0020   1286           00084         BCF CONTROLE
+0021   2???           00085         CALL ATRASO ;DELAY DE 1S
+0022   1006           00086         BCF TERREO
+0023   1686           00087         BSF CONTROLE
+0024   0008           00088         RETURN
+                      00089 
+0025                  00090 PRIMEIROANDAR
+0025   1486           00091         BSF PRIMEIRO
+0026   2???           00092         CALL ATRASO ;DELAY DE 1S
+0027   1286           00093         BCF CONTROLE
+0028   2???           00094         CALL ATRASO ;DELAY DE 1S
+0029   1086           00095         BCF PRIMEIRO
+002A   1686           00096         BSF CONTROLE
+002B   1486           00097         BSF PRIMEIRO
+002C   2???           00098         CALL ATRASO ;DELAY DE 1S
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+002D   1286           00099         BCF CONTROLE
+002E   2???           00100         CALL ATRASO ;DELAY DE 1S
+002F   1086           00101         BCF PRIMEIRO
+0030   1686           00102         BSF CONTROLE
+0031   0008           00103         RETURN
+                      00104 
+0032                  00105 SEGUNDOANDAR
+0032   1506           00106         BSF SEGUNDO
+0033   2???           00107         CALL ATRASO ;DELAY DE 1S
+0034   1286           00108         BCF CONTROLE
+0035   2???           00109         CALL ATRASO ;DELAY DE 1S
+0036   1106           00110         BCF SEGUNDO
+0037   1686           00111         BSF CONTROLE
+0038   1506           00112         BSF SEGUNDO
+0039   2???           00113         CALL ATRASO ;DELAY DE 1S
+003A   1286           00114         BCF CONTROLE
+003B   2???           00115         CALL ATRASO ;DELAY DE 1S
+003C   1106           00116         BCF SEGUNDO
+003D   1686           00117         BSF CONTROLE
+003E   1506           00118         BSF SEGUNDO
+003F   2???           00119         CALL ATRASO ;DELAY DE 1S
+0040   1286           00120         BCF CONTROLE
+0041   2???           00121         CALL ATRASO ;DELAY DE 1S
+0042   1106           00122         BCF SEGUNDO
+0043   1686           00123         BSF CONTROLE
+0044   0008           00124         RETURN
+                      00125 
+0045                  00126 TERCEIROANDAR
+0045   1586           00127         BSF TERCEIRO
+0046   2???           00128         CALL ATRASO ;DELAY DE 1S
+0047   1286           00129         BCF CONTROLE
+0048   2???           00130         CALL ATRASO ;DELAY DE 1S
+0049   1186           00131         BCF TERCEIRO
+004A   1686           00132         BSF CONTROLE
+004B   1586           00133         BSF TERCEIRO
+004C   2???           00134         CALL ATRASO ;DELAY DE 1S
+004D   1286           00135         BCF CONTROLE
+004E   2???           00136         CALL ATRASO ;DELAY DE 1S
+004F   1186           00137         BCF TERCEIRO
+0050   1686           00138         BSF CONTROLE
+0051   1586           00139         BSF TERCEIRO
+0052   2???           00140         CALL ATRASO ;DELAY DE 1S
+0053   1286           00141         BCF CONTROLE
+0054   2???           00142         CALL ATRASO ;DELAY DE 1S
+0055   1186           00143         BCF TERCEIRO
+0056   1686           00144         BSF CONTROLE
+0057   1586           00145         BSF TERCEIRO
+0058   2???           00146         CALL ATRASO ;DELAY DE 1S
+0059   1286           00147         BCF CONTROLE
+005A   2???           00148         CALL ATRASO ;DELAY DE 1S
+005B   1186           00149         BCF TERCEIRO
+005C   1686           00150         BSF CONTROLE
+005D   0008           00151         RETURN
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00152 
+005E                  00153 QUARTOANDAR
+005E   1606           00154         BSF QUARTO
+005F   2???           00155         CALL ATRASO ;DELAY DE 1S
+0060   1286           00156         BCF CONTROLE
+0061   2???           00157         CALL ATRASO ;DELAY DE 1S
+0062   1206           00158         BCF QUARTO
+0063   1686           00159         BSF CONTROLE
+0064   1606           00160         BSF QUARTO
+0065   2???           00161         CALL ATRASO ;DELAY DE 1S
+0066   1286           00162         BCF CONTROLE
+0067   2???           00163         CALL ATRASO ;DELAY DE 1S
+0068   1206           00164         BCF QUARTO
+0069   1686           00165         BSF CONTROLE
+006A   1606           00166         BSF QUARTO
+006B   2???           00167         CALL ATRASO ;DELAY DE 1S
+006C   1286           00168         BCF CONTROLE
+006D   2???           00169         CALL ATRASO ;DELAY DE 1S
+006E   1206           00170         BCF QUARTO
+006F   1686           00171         BSF CONTROLE
+0070   1606           00172         BSF QUARTO
+0071   2???           00173         CALL ATRASO ;DELAY DE 1S
+0072   1286           00174         BCF CONTROLE
+0073   2???           00175         CALL ATRASO ;DELAY DE 1S
+0074   1206           00176         BCF QUARTO
+0075   1686           00177         BSF CONTROLE
+0076   1606           00178         BSF QUARTO
+0077   2???           00179         CALL ATRASO ;DELAY DE 1S
+0078   1286           00180         BCF CONTROLE
+0079   2???           00181         CALL ATRASO ;DELAY DE 1S
+007A   1206           00182         BCF QUARTO
+007B   1686           00183         BSF CONTROLE
+007C   0008           00184         RETURN
+                      00185         
+007D                  00186 PRESSIONADO
+007D   1406           00187         BSF TERREO
+007E   1686           00188         BSF CONTROLE
+007F   2???           00189         CALL ATRASO ;DELAY DE 1S
+0080   1286           00190         BCF CONTROLE
+0081   2???           00191         CALL ATRASO ;DELAY DE 1S
+0082   1006           00192         BCF TERREO
+0083   1686           00193         BSF CONTROLE
+0084   1406           00194         BSF TERREO
+0085   1686           00195         BSF CONTROLE
+0086   2???           00196         CALL ATRASO ;DELAY DE 1S
+0087   1286           00197         BCF CONTROLE
+0088   2???           00198         CALL ATRASO ;DELAY DE 1S
+0089   1006           00199         BCF TERREO
+008A   1686           00200         BSF CONTROLE
+008B   1406           00201         BSF TERREO
+008C   1686           00202         BSF CONTROLE
+008D   2???           00203         CALL ATRASO ;DELAY DE 1S
+008E   1286           00204         BCF CONTROLE
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+008F   2???           00205         CALL ATRASO ;DELAY DE 1S
+0090   1006           00206         BCF TERREO
+0091   1686           00207         BSF CONTROLE
+0092   1406           00208         BSF TERREO
+0093   1686           00209         BSF CONTROLE
+0094   2???           00210         CALL ATRASO ;DELAY DE 1S
+0095   1286           00211         BCF CONTROLE
+0096   2???           00212         CALL ATRASO ;DELAY DE 1S
+0097   1006           00213         BCF TERREO
+0098   1686           00214         BSF CONTROLE
+0099   1406           00215         BSF TERREO
+009A   1686           00216         BSF CONTROLE
+009B   2???           00217         CALL ATRASO ;DELAY DE 1S
+009C   1286           00218         BCF CONTROLE
+009D   2???           00219         CALL ATRASO ;DELAY DE 1S
+009E   1006           00220         BCF TERREO
+009F   1686           00221         BSF CONTROLE
+00A0   0008           00222         RETURN
+                      00223 
+00A1                  00224 ATRASO                  
+                      00225         ;SETAR CONTADORES       
+00A1   3007           00226         MOVLW   7
+00A2   00A0           00227         MOVWF   CONTADOR1
+00A3   3016           00228         MOVLW   22 
+00A4   00A1           00229         MOVWF   CONTADOR2
+00A5   3043           00230         MOVLW   67 
+00A6   00A2           00231         MOVWF   CONTADOR3
+                      00232 
+00A7                  00233 ATRASO1                         
+Message[305]: Using default destination of 1 (file).
+00A7   0BA0           00234         DECFSZ  CONTADOR1 ;TESTAR SE CONTADOR1 < 0
+00A8   2???           00235         GOTO ATRASO2
+00A9   0000           00236         NOP ;NOP SÓ PRA DAR UM MIGUÉ
+00AA   0008           00237         RETURN ;RETORNAR PARA ONDE O ATRASO FOI CHAMADO
+                      00238 
+00AB                  00239 ATRASO2
+Message[305]: Using default destination of 1 (file).
+00AB   0BA1           00240         DECFSZ CONTADOR2 ;TESTAR SE CONTADOR1 < 0
+00AC   2???           00241         GOTO ATRASO3
+00AD   2???           00242         GOTO ATRASO1
+                      00243 
+00AE                  00244 ATRASO3
+00AE   2???           00245         CALL TESTAR_BOTAO
+Message[305]: Using default destination of 1 (file).
+00AF   0BA2           00246         DECFSZ CONTADOR3 ;TESTAR SE CONTADOR1 < 0
+00B0   2???           00247         GOTO ATRASO3
+00B1   2???           00248         GOTO ATRASO2    
+                      00249         
+00B2                  00250 TESTAR_BOTAO
+00B2   1905           00251         BTFSC   BOTAO           ;O BOTÃO ESTÁ PRESSIONADO?
+00B3   2???           00252         CALL    ATRASO_BOTAO ; NAO, FAZ UM ATRASO DE 30MSECS E VOLTA ONDE FOI CHAMADO
+00B4   2???           00253         CALL    BOTAO_PRESSIONADO       ;SIM, ENTÃO TRATA BOTÃO PRESSIONADO
+00B5   0008           00254         RETURN
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00255 
+00B6                  00256 BOTAO_PRESSIONADO
+00B6   0000           00257         NOP ;;TRATAR AQUI O BOTAO PRESSIONADO
+00B7   0008           00258         RETURN
+                      00259 
+00B8                  00260 ATRASO_BOTAO
+00B8   3005           00261         MOVLW   5
+00B9   00A3           00262         MOVWF   CONTADOR_BOTAO
+00BA   3005           00263         MOVLW   5
+00BB   00A4           00264         MOVWF   CONTADOR_BOTAO1
+                      00265         
+                      00266 
+00BC                  00267 ATRASO_BOTAO1
+Message[305]: Using default destination of 1 (file).
+00BC   0BA2           00268                 DECFSZ CONTADOR3 ;TESTAR SE CONTADOR1 < 0
+00BD   2???           00269                 GOTO ATRASO_BOTAO2
+00BE   2???           00270                 GOTO ATRASO_BOTAO
+                      00271 
+00BF                  00272 ATRASO_BOTAO2
+Message[305]: Using default destination of 1 (file).
+00BF   0BA2           00273         DECFSZ CONTADOR3 ;TESTAR SE CONTADOR1 < 0
+00C0   2???           00274         GOTO ATRASO_BOTAO2
+00C1   2???           00275         GOTO ATRASO_BOTAO1
+Warning[205]: Found directive in column 1. (END)
+3F10                  00276 END
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ADEN                              00000003
+ATRASO                            000000A1
+ATRASO1                           000000A7
+ATRASO2                           000000AB
+ATRASO3                           000000AE
+ATRASO_BOTAO                      000000B8
+ATRASO_BOTAO1                     000000BC
+ATRASO_BOTAO2                     000000BF
+BOTAO                             PORTA,2
+BOTAO_PRESSIONADO                 000000B6
+BRGH                              00000002
+C                                 00000000
+C1INV                             00000004
+C1OUT                             00000006
+C2INV                             00000005
+C2OUT                             00000007
+CCP1CON                           00000017
+CCP1IE                            00000002
+CCP1IF                            00000002
+CCP1M0                            00000000
+CCP1M1                            00000001
+CCP1M2                            00000002
+CCP1M3                            00000003
+CCP1X                             00000005
+CCP1Y                             00000004
+CCPR1H                            00000016
+CCPR1L                            00000015
+CIS                               00000003
+CM0                               00000000
+CM1                               00000001
+CM2                               00000002
+CMCON                             0000001F
+CMIE                              00000006
+CMIF                              00000006
+CONTADOR1                         00000020
+CONTADOR2                         00000021
+CONTADOR3                         00000022
+CONTADOR_BOTAO                    00000023
+CONTADOR_BOTAO1                   00000024
+CONTROLE                          PORTB,5
+CREN                              00000004
+CSRC                              00000007
+DC                                00000001
+EEADR                             0000009B
+EECON1                            0000009C
+EECON2                            0000009D
+EEDATA                            0000009A
+EEIE                              00000007
+EEIF                              00000007
+F                                 00000001
+FERR                              00000002
+FSR                               00000004
+GIE                               00000007
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+INDF                              00000000
+INICIO                            00000001
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_BO                            00000000
+NOT_BOD                           00000000
+NOT_BOR                           00000000
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RBPU                          00000007
+NOT_T1SYNC                        00000002
+NOT_TO                            00000004
+OERR                              00000001
+OPTION_REG                        00000081
+OSCF                              00000003
+PCL                               00000002
+PCLATH                            0000000A
+PCON                              0000008E
+PEIE                              00000006
+PIE1                              0000008C
+PIR1                              0000000C
+PORTA                             00000005
+PORTB                             00000006
+PR2                               00000092
+PRESSIONADO                       0000007D
+PRIMEIRO                          PORTB,1
+PRIMEIROANDAR                     00000025
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+QUARTO                            PORTB,4
+QUARTOANDAR                       0000005E
+RBIE                              00000003
+RBIF                              00000000
+RCIE                              00000005
+RCIF                              00000005
+RCREG                             0000001A
+RCSTA                             00000018
+RD                                00000000
+REPETE                            0000000B
+RP0                               00000005
+RP1                               00000006
+RX9                               00000006
+RX9D                              00000000
+SEGUNDO                           PORTB,2
+SEGUNDOANDAR                      00000032
+SPBRG                             00000099
+SPEN                              00000007
+SREN                              00000005
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  9
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+STATUS                            00000003
+SYNC                              00000004
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+T1CON                             00000010
+T1OSCEN                           00000003
+T2CKPS0                           00000000
+T2CKPS1                           00000001
+T2CON                             00000012
+TER                               0000001D
+TERCEIRO                          PORTB,3
+TERCEIROANDAR                     00000045
+TERREO                            PORTB,0
+TESTAR_BOTAO                      000000B2
+TMR0                              00000001
+TMR1CS                            00000001
+TMR1H                             0000000F
+TMR1IE                            00000000
+TMR1IF                            00000000
+TMR1L                             0000000E
+TMR1ON                            00000000
+TMR2                              00000011
+TMR2IE                            00000001
+TMR2IF                            00000001
+TMR2ON                            00000002
+TOUTPS0                           00000003
+TOUTPS1                           00000004
+TOUTPS2                           00000005
+TOUTPS3                           00000006
+TRISA                             00000085
+TRISB                             00000086
+TRMT                              00000001
+TX9                               00000006
+TX9D                              00000000
+TXEN                              00000005
+TXIE                              00000004
+TXIF                              00000004
+TXREG                             00000019
+TXSTA                             00000098
+VR0                               00000000
+VR1                               00000001
+VR2                               00000002
+VR3                               00000003
+VRCON                             0000009F
+VREN                              00000007
+VROE                              00000006
+VRR                               00000005
+W                                 00000000
+WR                                00000001
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE 10
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_BODEN_OFF                        00003FBF
+_BODEN_ON                         00003FFF
+_BOREN_OFF                        00003FBF
+_BOREN_ON                         00003FFF
+_CP_OFF                           00003FFF
+_CP_ON                            00001FFF
+_DATA_CP_OFF                      00003FFF
+_DATA_CP_ON                       00003EFF
+_ER_OSC_CLKOUT                    00003FFF
+_ER_OSC_NOCLKOUT                  00003FFE
+_EXTCLK_OSC                       00003FEF
+_HS_OSC                           00003FEE
+_INTOSC_OSC_CLKOUT                00003FFD
+_INTOSC_OSC_NOCLKOUT              00003FFC
+_INTRC_OSC_CLKOUT                 00003FFD
+_INTRC_OSC_NOCLKOUT               00003FFC
+_LP_OSC                           00003FEC
+_LVP_OFF                          00003F7F
+_LVP_ON                           00003FFF
+_MCLRE_OFF                        00003FDF
+_MCLRE_ON                         00003FFF
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC_CLKOUT                    00003FFF
+_RC_OSC_NOCLKOUT                  00003FFE
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FED
+__16F628A                         00000001
+__DEBUG                           1
+
+Errors   :     0
+Warnings :     3 reported,     0 suppressed
+Messages :     7 reported,     0 suppressed
+
+

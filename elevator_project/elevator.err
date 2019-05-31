@@ -1,0 +1,10 @@
+Warning[205] C:\USERS\1517901_INS\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 2 : Found directive in column 1. (LIST)
+Warning[205] C:\USERS\1517901_INS\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 3 : Found directive in column 1. (RADIX)
+Message[302] C:\USERS\1517901_INS\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 53 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\1517901_INS\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 54 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] C:\USERS\1517901_INS\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 234 : Using default destination of 1 (file).
+Message[305] C:\USERS\1517901_INS\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 240 : Using default destination of 1 (file).
+Message[305] C:\USERS\1517901_INS\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 246 : Using default destination of 1 (file).
+Message[305] C:\USERS\1517901_INS\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 268 : Using default destination of 1 (file).
+Message[305] C:\USERS\1517901_INS\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 273 : Using default destination of 1 (file).
+Warning[205] C:\USERS\1517901_INS\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 276 : Found directive in column 1. (END)
