@@ -1,4 +1,4 @@
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  1
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:23:45         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[205]: Found directive in column 1. (RADIX)
                       00045         ORG     0x00            ;ENDEREÇO INICIAL DE PROCESSAMENTO
 0000   2???           00046         GOTO    INICIO
                       00047                 
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  2
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:23:45         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 002A   1686           00096         BSF CONTROLE
 002B   1486           00097         BSF PRIMEIRO
 002C   2???           00098         CALL ATRASO ;DELAY DE 1S
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  3
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:23:45         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 005B   1186           00149         BCF TERCEIRO
 005C   1686           00150         BSF CONTROLE
 005D   0008           00151         RETURN
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  4
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:23:45         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 008C   1686           00202         BSF CONTROLE
 008D   2???           00203         CALL ATRASO ;DELAY DE 1S
 008E   1286           00204         BCF CONTROLE
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  5
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:23:45         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -261,11 +261,11 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00223 
 00A1                  00224 ATRASO                  
                       00225         ;SETAR CONTADORES       
-00A1   3007           00226         MOVLW   7
+00A1   3003           00226         MOVLW   3       ;7
 00A2   00A0           00227         MOVWF   CONTADOR1
-00A3   3016           00228         MOVLW   22 
+00A3   3019           00228         MOVLW   25 ;22
 00A4   00A1           00229         MOVWF   CONTADOR2
-00A5   3043           00230         MOVLW   67 
+00A5   300F           00230         MOVLW   15 ;67
 00A6   00A2           00231         MOVWF   CONTADOR3
                       00232 
 00A7                  00233 ATRASO1                         
@@ -293,7 +293,7 @@ Message[305]: Using default destination of 1 (file).
 00B4                  00252 TESTAR_BOTAO
 00B4   1905           00253         BTFSC   BOTAO           ;O BOTÃO ESTÁ PRESSIONADO?
 00B5   2???           00254         CALL    ATRASO_BOTAO ; NAO, FAZ UM ATRASO DE 30MSECS E VOLTA ONDE FOI CHAMADO
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  6
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:23:45         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -307,9 +307,9 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00B9   0008           00260         RETURN
                       00261 
 00BA                  00262 ATRASO_BOTAO
-00BA   3028           00263         MOVLW   40
+00BA   3028           00263         MOVLW   40 ;40
 00BB   00A3           00264         MOVWF   CONTADOR_BOTAO1
-00BC   3028           00265         MOVLW   40
+00BC   3028           00265         MOVLW   40 ;40
 00BD   00A4           00266         MOVWF   CONTADOR_BOTAO2
                       00267         
                       00268 
@@ -326,7 +326,7 @@ Message[305]: Using default destination of 1 (file).
 00C3   2???           00277         GOTO ATRASO_BOTAO1
 Warning[205]: Found directive in column 1. (END)
 3F10                  00278 END
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  7
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:23:45         PAGE  7
 
 
 SYMBOL TABLE
@@ -385,7 +385,7 @@ F                                 00000001
 FERR                              00000002
 FSR                               00000004
 GIE                               00000007
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  8
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:23:45         PAGE  8
 
 
 SYMBOL TABLE
@@ -444,7 +444,7 @@ SEGUNDOANDAR                      00000032
 SPBRG                             00000099
 SPEN                              00000007
 SREN                              00000005
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  9
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:23:45         PAGE  9
 
 
 SYMBOL TABLE
@@ -503,7 +503,7 @@ VROE                              00000006
 VRR                               00000005
 W                                 00000000
 WR                                00000001
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE 10
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:23:45         PAGE 10
 
 
 SYMBOL TABLE
