@@ -1,4 +1,4 @@
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  1
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -21,8 +21,8 @@ Warning[205]: Found directive in column 1. (RADIX)
   00000020            00009         CONTADOR1
   00000021            00010         CONTADOR2
   00000022            00011         CONTADOR3
-  00000023            00012         CONTADOR_BOTAO
-  00000024            00013         CONTADOR_BOTAO1
+  00000023            00012         CONTADOR_BOTAO1
+  00000024            00013         CONTADOR_BOTAO2
                       00014 
                       00015         ENDC                    ;FIM DO BLOCO DE MEMÓRIA        
                       00016 
@@ -57,7 +57,7 @@ Warning[205]: Found directive in column 1. (RADIX)
                       00045         ORG     0x00            ;ENDEREÇO INICIAL DE PROCESSAMENTO
 0000   2???           00046         GOTO    INICIO
                       00047                 
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  2
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 002A   1686           00096         BSF CONTROLE
 002B   1486           00097         BSF PRIMEIRO
 002C   2???           00098         CALL ATRASO ;DELAY DE 1S
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  3
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -175,7 +175,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 005B   1186           00149         BCF TERCEIRO
 005C   1686           00150         BSF CONTROLE
 005D   0008           00151         RETURN
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  4
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -234,7 +234,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 008C   1686           00202         BSF CONTROLE
 008D   2???           00203         CALL ATRASO ;DELAY DE 1S
 008E   1286           00204         BCF CONTROLE
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  5
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -269,62 +269,64 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 00A6   00A2           00231         MOVWF   CONTADOR3
                       00232 
 00A7                  00233 ATRASO1                         
+00A7   2???           00234         CALL TESTAR_BOTAO
 Message[305]: Using default destination of 1 (file).
-00A7   0BA0           00234         DECFSZ  CONTADOR1 ;TESTAR SE CONTADOR1 < 0
-00A8   2???           00235         GOTO ATRASO2
-00A9   0000           00236         NOP ;NOP SÓ PRA DAR UM MIGUÉ
-00AA   0008           00237         RETURN ;RETORNAR PARA ONDE O ATRASO FOI CHAMADO
-                      00238 
-00AB                  00239 ATRASO2
+00A8   0BA0           00235         DECFSZ  CONTADOR1 ;TESTAR SE CONTADOR1 < 0
+00A9   2???           00236         GOTO ATRASO2
+00AA   0000           00237         NOP ;NOP SÓ PRA DAR UM MIGUÉ
+00AB   0008           00238         RETURN ;RETORNAR PARA ONDE O ATRASO FOI CHAMADO
+                      00239 
+00AC                  00240 ATRASO2
+00AC   2???           00241         CALL TESTAR_BOTAO
 Message[305]: Using default destination of 1 (file).
-00AB   0BA1           00240         DECFSZ CONTADOR2 ;TESTAR SE CONTADOR1 < 0
-00AC   2???           00241         GOTO ATRASO3
-00AD   2???           00242         GOTO ATRASO1
-                      00243 
-00AE                  00244 ATRASO3
-00AE   2???           00245         CALL TESTAR_BOTAO
+00AD   0BA1           00242         DECFSZ CONTADOR2 ;TESTAR SE CONTADOR1 < 0
+00AE   2???           00243         GOTO ATRASO3
+00AF   2???           00244         GOTO ATRASO1
+                      00245 
+00B0                  00246 ATRASO3
+00B0   2???           00247         CALL TESTAR_BOTAO
 Message[305]: Using default destination of 1 (file).
-00AF   0BA2           00246         DECFSZ CONTADOR3 ;TESTAR SE CONTADOR1 < 0
-00B0   2???           00247         GOTO ATRASO3
-00B1   2???           00248         GOTO ATRASO2    
-                      00249         
-00B2                  00250 TESTAR_BOTAO
-00B2   1905           00251         BTFSC   BOTAO           ;O BOTÃO ESTÁ PRESSIONADO?
-00B3   2???           00252         CALL    ATRASO_BOTAO ; NAO, FAZ UM ATRASO DE 30MSECS E VOLTA ONDE FOI CHAMADO
-00B4   2???           00253         CALL    BOTAO_PRESSIONADO       ;SIM, ENTÃO TRATA BOTÃO PRESSIONADO
-00B5   0008           00254         RETURN
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  6
+00B1   0BA2           00248         DECFSZ CONTADOR3 ;TESTAR SE CONTADOR1 < 0
+00B2   2???           00249         GOTO ATRASO3
+00B3   2???           00250         GOTO ATRASO2    
+                      00251         
+00B4                  00252 TESTAR_BOTAO
+00B4   1905           00253         BTFSC   BOTAO           ;O BOTÃO ESTÁ PRESSIONADO?
+00B5   2???           00254         CALL    ATRASO_BOTAO ; NAO, FAZ UM ATRASO DE 30MSECS E VOLTA ONDE FOI CHAMADO
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-                      00255 
-00B6                  00256 BOTAO_PRESSIONADO
-00B6   0000           00257         NOP ;;TRATAR AQUI O BOTAO PRESSIONADO
-00B7   0008           00258         RETURN
-                      00259 
-00B8                  00260 ATRASO_BOTAO
-00B8   3005           00261         MOVLW   5
-00B9   00A3           00262         MOVWF   CONTADOR_BOTAO
-00BA   3005           00263         MOVLW   5
-00BB   00A4           00264         MOVWF   CONTADOR_BOTAO1
-                      00265         
-                      00266 
-00BC                  00267 ATRASO_BOTAO1
+00B6   2???           00255         CALL    BOTAO_PRESSIONADO       ;SIM, ENTÃO TRATA BOTÃO PRESSIONADO
+00B7   0008           00256         RETURN
+                      00257 
+00B8                  00258 BOTAO_PRESSIONADO
+00B8   0000           00259         NOP ;;TRATAR AQUI O BOTAO PRESSIONADO
+00B9   0008           00260         RETURN
+                      00261 
+00BA                  00262 ATRASO_BOTAO
+00BA   3028           00263         MOVLW   40
+00BB   00A3           00264         MOVWF   CONTADOR_BOTAO1
+00BC   3028           00265         MOVLW   40
+00BD   00A4           00266         MOVWF   CONTADOR_BOTAO2
+                      00267         
+                      00268 
+00BE                  00269 ATRASO_BOTAO1
 Message[305]: Using default destination of 1 (file).
-00BC   0BA2           00268                 DECFSZ CONTADOR3 ;TESTAR SE CONTADOR1 < 0
-00BD   2???           00269                 GOTO ATRASO_BOTAO2
-00BE   2???           00270                 GOTO ATRASO_BOTAO
-                      00271 
-00BF                  00272 ATRASO_BOTAO2
+00BE   0BA3           00270         DECFSZ CONTADOR_BOTAO1 ;TESTAR SE CONTADOR1 < 0
+00BF   2???           00271         GOTO ATRASO_BOTAO2
+00C0   0008           00272         RETURN
+                      00273 
+00C1                  00274 ATRASO_BOTAO2
 Message[305]: Using default destination of 1 (file).
-00BF   0BA2           00273         DECFSZ CONTADOR3 ;TESTAR SE CONTADOR1 < 0
-00C0   2???           00274         GOTO ATRASO_BOTAO2
-00C1   2???           00275         GOTO ATRASO_BOTAO1
+00C1   0BA4           00275         DECFSZ CONTADOR_BOTAO2 ;TESTAR SE CONTADOR1 < 0
+00C2   2???           00276         GOTO ATRASO_BOTAO2
+00C3   2???           00277         GOTO ATRASO_BOTAO1
 Warning[205]: Found directive in column 1. (END)
-3F10                  00276 END
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  7
+3F10                  00278 END
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  7
 
 
 SYMBOL TABLE
@@ -333,13 +335,13 @@ SYMBOL TABLE
 ADEN                              00000003
 ATRASO                            000000A1
 ATRASO1                           000000A7
-ATRASO2                           000000AB
-ATRASO3                           000000AE
-ATRASO_BOTAO                      000000B8
-ATRASO_BOTAO1                     000000BC
-ATRASO_BOTAO2                     000000BF
+ATRASO2                           000000AC
+ATRASO3                           000000B0
+ATRASO_BOTAO                      000000BA
+ATRASO_BOTAO1                     000000BE
+ATRASO_BOTAO2                     000000C1
 BOTAO                             PORTA,2
-BOTAO_PRESSIONADO                 000000B6
+BOTAO_PRESSIONADO                 000000B8
 BRGH                              00000002
 C                                 00000000
 C1INV                             00000004
@@ -367,8 +369,8 @@ CMIF                              00000006
 CONTADOR1                         00000020
 CONTADOR2                         00000021
 CONTADOR3                         00000022
-CONTADOR_BOTAO                    00000023
-CONTADOR_BOTAO1                   00000024
+CONTADOR_BOTAO1                   00000023
+CONTADOR_BOTAO2                   00000024
 CONTROLE                          PORTB,5
 CREN                              00000004
 CSRC                              00000007
@@ -383,7 +385,7 @@ F                                 00000001
 FERR                              00000002
 FSR                               00000004
 GIE                               00000007
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  8
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  8
 
 
 SYMBOL TABLE
@@ -442,7 +444,7 @@ SEGUNDOANDAR                      00000032
 SPBRG                             00000099
 SPEN                              00000007
 SREN                              00000005
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE  9
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE  9
 
 
 SYMBOL TABLE
@@ -465,7 +467,7 @@ TER                               0000001D
 TERCEIRO                          PORTB,3
 TERCEIROANDAR                     00000045
 TERREO                            PORTB,0
-TESTAR_BOTAO                      000000B2
+TESTAR_BOTAO                      000000B4
 TMR0                              00000001
 TMR1CS                            00000001
 TMR1H                             0000000F
@@ -501,7 +503,7 @@ VROE                              00000006
 VRR                               00000005
 W                                 00000000
 WR                                00000001
-MPASM  5.35                      ELEVATOR.ASM   5-31-2019  11:56:33         PAGE 10
+MPASM  5.35                      ELEVATOR.ASM   5-31-2019  16:08:34         PAGE 10
 
 
 SYMBOL TABLE
