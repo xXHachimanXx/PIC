@@ -31,8 +31,15 @@ Any
 &
 ## ASYNCH
 Pin
-RCREG
+RA2
+Set High
 
+
+-1
+--
+Pin
+RA2
+Set Low
 
 
 -1

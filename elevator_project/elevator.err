@@ -1,10 +1,10 @@
-Warning[205] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 2 : Found directive in column 1. (LIST)
-Warning[205] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 3 : Found directive in column 1. (RADIX)
-Message[302] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 57 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 58 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 220 : Using default destination of 1 (file).
-Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 228 : Using default destination of 1 (file).
-Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 235 : Using default destination of 1 (file).
-Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 261 : Using default destination of 1 (file).
-Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 266 : Using default destination of 1 (file).
-Warning[205] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 269 : Found directive in column 1. (END)
+Warning[205] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 2 : Found directive in column 1. (LIST)
+Warning[205] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 3 : Found directive in column 1. (RADIX)
+Message[302] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 57 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 58 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 222 : Using default destination of 1 (file).
+Message[305] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 230 : Using default destination of 1 (file).
+Message[305] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 237 : Using default destination of 1 (file).
+Message[305] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 262 : Using default destination of 1 (file).
+Message[305] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 267 : Using default destination of 1 (file).
+Warning[205] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 270 : Found directive in column 1. (END)
