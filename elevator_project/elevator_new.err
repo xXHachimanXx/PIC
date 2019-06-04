@@ -1,0 +1,10 @@
+Warning[205] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR_NEW.ASM 2 : Found directive in column 1. (LIST)
+Warning[205] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR_NEW.ASM 3 : Found directive in column 1. (RADIX)
+Message[302] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR_NEW.ASM 51 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR_NEW.ASM 52 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR_NEW.ASM 196 : Using default destination of 1 (file).
+Message[305] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR_NEW.ASM 207 : Using default destination of 1 (file).
+Message[305] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR_NEW.ASM 215 : Using default destination of 1 (file).
+Warning[211] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR_NEW.ASM 223 : Extraneous arguments on the line.
+Warning[211] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR_NEW.ASM 226 : Extraneous arguments on the line.
+Warning[205] C:\USERS\ELIANE\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR_NEW.ASM 234 : Found directive in column 1. (END)
