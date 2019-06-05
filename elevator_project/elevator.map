@@ -1,11 +1,11 @@
 MPLINK 4.35, Linker
-Linker Map File - Created Wed Jun 05 19:54:09 2019
+Linker Map File - Created Wed Jun 05 20:13:54 2019
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                    .org_0       code   0x000000    program   0x000000
-                   .org_1       code   0x000000    program   0x0001de
+                   .org_1       code   0x000000    program   0x0001e2
   .config_2007_ELEVATOR.O       code   0x002007    program   0x000002
 
 
@@ -13,9 +13,9 @@ Linker Map File - Created Wed Jun 05 19:54:09 2019
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x0000ee      
+                            0x000000    0x0000f0      
                             0x002007    0x002007      
-            240 out of 2183 program addresses used, program memory utilization is 10%
+            242 out of 2183 program addresses used, program memory utilization is 11%
 
 
 
@@ -26,13 +26,13 @@ Linker Map File - Created Wed Jun 05 19:54:09 2019
                   ATRASO1   0x0000b9    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
                   ATRASO2   0x0000be    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
                   ATRASO3   0x0000c3    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-             ATRASO_BOTAO   0x0000d6    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO1   0x0000da    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO2   0x0000dd    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-       ATRASO_PRESSIONADO   0x0000e0    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO1   0x0000e6    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO2   0x0000e9    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO3   0x0000ec    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+             ATRASO_BOTAO   0x0000d8    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO1   0x0000dc    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO2   0x0000df    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+       ATRASO_PRESSIONADO   0x0000e2    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO1   0x0000e8    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO2   0x0000eb    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO3   0x0000ee    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
         BOTAO_PRESSIONADO   0x0000cc    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
                  CONTINUA   0x0000cb    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
                    INICIO   0x000001    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
@@ -71,12 +71,12 @@ Linker Map File - Created Wed Jun 05 19:54:09 2019
              TESTAR_BOTAO   0x0000c8    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
                  CONTINUA   0x0000cb    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
         BOTAO_PRESSIONADO   0x0000cc    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-             ATRASO_BOTAO   0x0000d6    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO1   0x0000da    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO2   0x0000dd    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-       ATRASO_PRESSIONADO   0x0000e0    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO1   0x0000e6    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO2   0x0000e9    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO3   0x0000ec    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+             ATRASO_BOTAO   0x0000d8    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO1   0x0000dc    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO2   0x0000df    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+       ATRASO_PRESSIONADO   0x0000e2    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO1   0x0000e8    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO2   0x0000eb    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO3   0x0000ee    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
 
 
