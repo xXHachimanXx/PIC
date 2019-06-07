@@ -1,4 +1,4 @@
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE  1
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[205]: Found directive in column 1. (RADIX)
                       00045                                         ; 0 -> APAGADO
                       00046                                         ; 1 -> ACESO    
                       00047         
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE  2
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -82,375 +82,395 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 000B   009F           00062         MOVWF   CMCON           ;DEFINE O MODO DO COMPARADOR ANALÓGICO
                       00063 
 000C                  00064 REPETE
-000C   201C           00065         CALL TER
+000C   2028           00065         CALL TER
                       00066         ;TESTA SE O BOTÃO FOI PRESSIONADO, SE SIM VAI PARA O TERREO
 000D   1B06           00067         BTFSC PRESSIONADO
-000E   2881           00068         GOTO TERREO_EMERGENCIA
+000E   288D           00068         GOTO TERREO_EMERGENCIA
                       00069         
-000F   2025           00070         CALL PRIMEIROANDAR
+000F   2031           00070         CALL PRIMEIROANDAR
                       00071         ;TESTA SE O BOTÃO FOI PRESSIONADO, SE SIM VAI PARA O TERREO
 0010   1B06           00072         BTFSC PRESSIONADO
-0011   2881           00073         GOTO TERREO_EMERGENCIA
+0011   288D           00073         GOTO TERREO_EMERGENCIA
                       00074 
-0012   2033           00075         CALL SEGUNDOANDAR
+0012   203F           00075         CALL SEGUNDOANDAR
                       00076         ;TESTA SE O BOTÃO FOI PRESSIONADO, SE SIM VAI PARA O PRIMEIRO_ANDAR
 0013   1B06           00077         BTFSC PRESSIONADO
-0014   289B           00078         GOTO PRIMEIRO_EMERGENCIA
+0014   28A7           00078         GOTO PRIMEIRO_EMERGENCIA
                       00079         
-0015   2047           00080         CALL TERCEIROANDAR
+0015   2053           00080         CALL TERCEIROANDAR
                       00081         ;TESTA SE O BOTÃO FOI PRESSIONADO, SE SIM VAI PARA O SEGUNDO_ANDAR
 0016   1B06           00082         BTFSC PRESSIONADO
-0017   28A4           00083         GOTO SEGUNDO_EMERGENCIA
+0017   28B0           00083         GOTO SEGUNDO_EMERGENCIA
                       00084 
-0018   2061           00085         CALL QUARTOANDAR
+0018   206D           00085         CALL QUARTOANDAR
                       00086         ;TESTA SE O BOTÃO FOI PRESSIONADO, SE SIM VAI PARA O TERCEIRO_ANDAR, NESSE CASO NÃO IRÁ PRECISAR
                              DESVIAR, APENAS CONTINUAR PARA BAIXO
 0019   1B06           00087         BTFSC PRESSIONADO
-001A   28AD           00088         GOTO TERCEIRO_EMERGENCIA
+001A   28B9           00088         GOTO TERCEIRO_EMERGENCIA
                       00089         
-001B   280C           00090         GOTO REPETE 
-                      00091 
-001C                  00092 TER
-001C   1306           00093         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
-001D   1406           00094         BSF TERREO
-001E   1686           00095         BSF CONTROLE
-001F   20B6           00096         CALL ATRASO ;DELAY DE 1S
-0020   1286           00097         BCF CONTROLE
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE  3
+001B   2053           00090         CALL TERCEIROANDAR
+                      00091         ;TESTA SE O BOTÃO FOI PRESSIONADO, SE SIM VAI PARA O SEGUNDO_ANDAR
+001C   1B06           00092         BTFSC PRESSIONADO
+001D   28B0           00093         GOTO SEGUNDO_EMERGENCIA
+                      00094         
+001E   203F           00095         CALL SEGUNDOANDAR
+                      00096         ;TESTA SE O BOTÃO FOI PRESSIONADO, SE SIM VAI PARA O PRIMEIRO_ANDAR
+001F   1B06           00097         BTFSC PRESSIONADO
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0021   20B6           00098         CALL ATRASO ;DELAY DE 1S
-0022   1006           00099         BCF TERREO
-0023   1686           00100         BSF CONTROLE
-0024   0008           00101         RETURN
-                      00102 
-0025                  00103 PRIMEIROANDAR
-0025   1306           00104         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
-0026   1486           00105         BSF PRIMEIRO
-0027   20B6           00106         CALL ATRASO ;DELAY DE 1S
-0028   1286           00107         BCF CONTROLE
-0029   20B6           00108         CALL ATRASO ;DELAY DE 1S
-002A   1086           00109         BCF PRIMEIRO
-002B   1686           00110         BSF CONTROLE
-002C   1486           00111         BSF PRIMEIRO
-002D   20B6           00112         CALL ATRASO ;DELAY DE 1S
-002E   1286           00113         BCF CONTROLE
-002F   20B6           00114         CALL ATRASO ;DELAY DE 1S
-0030   1086           00115         BCF PRIMEIRO
-0031   1686           00116         BSF CONTROLE
-0032   0008           00117         RETURN
-                      00118 
-0033                  00119 SEGUNDOANDAR
-0033   1306           00120         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
-0034   1506           00121         BSF SEGUNDO
-0035   20B6           00122         CALL ATRASO ;DELAY DE 1S
-0036   1286           00123         BCF CONTROLE
-0037   20B6           00124         CALL ATRASO ;DELAY DE 1S
-0038   1106           00125         BCF SEGUNDO
-0039   1686           00126         BSF CONTROLE
-003A   1506           00127         BSF SEGUNDO
-003B   20B6           00128         CALL ATRASO ;DELAY DE 1S
-003C   1286           00129         BCF CONTROLE
-003D   20B6           00130         CALL ATRASO ;DELAY DE 1S
-003E   1106           00131         BCF SEGUNDO
-003F   1686           00132         BSF CONTROLE
-0040   1506           00133         BSF SEGUNDO
-0041   20B6           00134         CALL ATRASO ;DELAY DE 1S
-0042   1286           00135         BCF CONTROLE
-0043   20B6           00136         CALL ATRASO ;DELAY DE 1S
-0044   1106           00137         BCF SEGUNDO
-0045   1686           00138         BSF CONTROLE
-0046   0008           00139         RETURN
-                      00140 
-0047                  00141 TERCEIROANDAR
-0047   1306           00142         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
-0048   1586           00143         BSF TERCEIRO
-0049   20B6           00144         CALL ATRASO ;DELAY DE 1S
-004A   1286           00145         BCF CONTROLE
-004B   20B6           00146         CALL ATRASO ;DELAY DE 1S
-004C   1186           00147         BCF TERCEIRO
-004D   1686           00148         BSF CONTROLE
-004E   1586           00149         BSF TERCEIRO
-004F   20B6           00150         CALL ATRASO ;DELAY DE 1S
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE  4
+0020   28A7           00098         GOTO PRIMEIRO_EMERGENCIA
+                      00099         
+0021   2031           00100         CALL PRIMEIROANDAR
+                      00101         ;TESTA SE O BOTÃO FOI PRESSIONADO, SE SIM VAI PARA O TERREO
+0022   1B06           00102         BTFSC PRESSIONADO
+0023   288D           00103         GOTO TERREO_EMERGENCIA
+                      00104         
+0024   2028           00105         CALL TER
+                      00106         ;TESTA SE O BOTÃO FOI PRESSIONADO, SE SIM VAI PARA O TERREO
+0025   1B06           00107         BTFSC PRESSIONADO
+0026   288D           00108         GOTO TERREO_EMERGENCIA
+                      00109         
+0027   280C           00110         GOTO REPETE 
+                      00111 
+0028                  00112 TER
+0028   1306           00113         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
+0029   1406           00114         BSF TERREO
+002A   1686           00115         BSF CONTROLE
+002B   20C2           00116         CALL ATRASO ;DELAY DE 1S
+002C   1286           00117         BCF CONTROLE
+002D   20C2           00118         CALL ATRASO ;DELAY DE 1S
+002E   1006           00119         BCF TERREO
+002F   1686           00120         BSF CONTROLE
+0030   0008           00121         RETURN
+                      00122 
+0031                  00123 PRIMEIROANDAR
+0031   1306           00124         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
+0032   1486           00125         BSF PRIMEIRO
+0033   20C2           00126         CALL ATRASO ;DELAY DE 1S
+0034   1286           00127         BCF CONTROLE
+0035   20C2           00128         CALL ATRASO ;DELAY DE 1S
+0036   1086           00129         BCF PRIMEIRO
+0037   1686           00130         BSF CONTROLE
+0038   1486           00131         BSF PRIMEIRO
+0039   20C2           00132         CALL ATRASO ;DELAY DE 1S
+003A   1286           00133         BCF CONTROLE
+003B   20C2           00134         CALL ATRASO ;DELAY DE 1S
+003C   1086           00135         BCF PRIMEIRO
+003D   1686           00136         BSF CONTROLE
+003E   0008           00137         RETURN
+                      00138 
+003F                  00139 SEGUNDOANDAR
+003F   1306           00140         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
+0040   1506           00141         BSF SEGUNDO
+0041   20C2           00142         CALL ATRASO ;DELAY DE 1S
+0042   1286           00143         BCF CONTROLE
+0043   20C2           00144         CALL ATRASO ;DELAY DE 1S
+0044   1106           00145         BCF SEGUNDO
+0045   1686           00146         BSF CONTROLE
+0046   1506           00147         BSF SEGUNDO
+0047   20C2           00148         CALL ATRASO ;DELAY DE 1S
+0048   1286           00149         BCF CONTROLE
+0049   20C2           00150         CALL ATRASO ;DELAY DE 1S
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE  4
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0050   1286           00151         BCF CONTROLE
-0051   20B6           00152         CALL ATRASO ;DELAY DE 1S
-0052   1186           00153         BCF TERCEIRO
-0053   1686           00154         BSF CONTROLE
-0054   1586           00155         BSF TERCEIRO
-0055   20B6           00156         CALL ATRASO ;DELAY DE 1S
-0056   1286           00157         BCF CONTROLE
-0057   20B6           00158         CALL ATRASO ;DELAY DE 1S
-0058   1186           00159         BCF TERCEIRO
-0059   1686           00160         BSF CONTROLE
-005A   1586           00161         BSF TERCEIRO
-005B   20B6           00162         CALL ATRASO ;DELAY DE 1S
-005C   1286           00163         BCF CONTROLE
-005D   20B6           00164         CALL ATRASO ;DELAY DE 1S
-005E   1186           00165         BCF TERCEIRO
-005F   1686           00166         BSF CONTROLE
-0060   0008           00167         RETURN
-                      00168 
-0061                  00169 QUARTOANDAR
-0061   1306           00170         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
-0062   1606           00171         BSF QUARTO
-0063   20B6           00172         CALL ATRASO ;DELAY DE 1S
-0064   1286           00173         BCF CONTROLE
-0065   20B6           00174         CALL ATRASO ;DELAY DE 1S
-0066   1206           00175         BCF QUARTO
-0067   1686           00176         BSF CONTROLE
-0068   1606           00177         BSF QUARTO
-0069   20B6           00178         CALL ATRASO ;DELAY DE 1S
-006A   1286           00179         BCF CONTROLE
-006B   20B6           00180         CALL ATRASO ;DELAY DE 1S
-006C   1206           00181         BCF QUARTO
-006D   1686           00182         BSF CONTROLE
-006E   1606           00183         BSF QUARTO
-006F   20B6           00184         CALL ATRASO ;DELAY DE 1S
-0070   1286           00185         BCF CONTROLE
-0071   20B6           00186         CALL ATRASO ;DELAY DE 1S
-0072   1206           00187         BCF QUARTO
-0073   1686           00188         BSF CONTROLE
-0074   1606           00189         BSF QUARTO
-0075   20B6           00190         CALL ATRASO ;DELAY DE 1S
-0076   1286           00191         BCF CONTROLE
-0077   20B6           00192         CALL ATRASO ;DELAY DE 1S
-0078   1206           00193         BCF QUARTO
-0079   1686           00194         BSF CONTROLE
-007A   1606           00195         BSF QUARTO
-007B   20B6           00196         CALL ATRASO ;DELAY DE 1S
-007C   1286           00197         BCF CONTROLE
-007D   20B6           00198         CALL ATRASO ;DELAY DE 1S
-007E   1206           00199         BCF QUARTO
-007F   1686           00200         BSF CONTROLE
-0080   0008           00201         RETURN
-                      00202 
-0081                  00203 TERREO_EMERGENCIA
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE  5
+004A   1106           00151         BCF SEGUNDO
+004B   1686           00152         BSF CONTROLE
+004C   1506           00153         BSF SEGUNDO
+004D   20C2           00154         CALL ATRASO ;DELAY DE 1S
+004E   1286           00155         BCF CONTROLE
+004F   20C2           00156         CALL ATRASO ;DELAY DE 1S
+0050   1106           00157         BCF SEGUNDO
+0051   1686           00158         BSF CONTROLE
+0052   0008           00159         RETURN
+                      00160 
+0053                  00161 TERCEIROANDAR
+0053   1306           00162         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
+0054   1586           00163         BSF TERCEIRO
+0055   20C2           00164         CALL ATRASO ;DELAY DE 1S
+0056   1286           00165         BCF CONTROLE
+0057   20C2           00166         CALL ATRASO ;DELAY DE 1S
+0058   1186           00167         BCF TERCEIRO
+0059   1686           00168         BSF CONTROLE
+005A   1586           00169         BSF TERCEIRO
+005B   20C2           00170         CALL ATRASO ;DELAY DE 1S
+005C   1286           00171         BCF CONTROLE
+005D   20C2           00172         CALL ATRASO ;DELAY DE 1S
+005E   1186           00173         BCF TERCEIRO
+005F   1686           00174         BSF CONTROLE
+0060   1586           00175         BSF TERCEIRO
+0061   20C2           00176         CALL ATRASO ;DELAY DE 1S
+0062   1286           00177         BCF CONTROLE
+0063   20C2           00178         CALL ATRASO ;DELAY DE 1S
+0064   1186           00179         BCF TERCEIRO
+0065   1686           00180         BSF CONTROLE
+0066   1586           00181         BSF TERCEIRO
+0067   20C2           00182         CALL ATRASO ;DELAY DE 1S
+0068   1286           00183         BCF CONTROLE
+0069   20C2           00184         CALL ATRASO ;DELAY DE 1S
+006A   1186           00185         BCF TERCEIRO
+006B   1686           00186         BSF CONTROLE
+006C   0008           00187         RETURN
+                      00188 
+006D                  00189 QUARTOANDAR
+006D   1306           00190         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
+006E   1606           00191         BSF QUARTO
+006F   20C2           00192         CALL ATRASO ;DELAY DE 1S
+0070   1286           00193         BCF CONTROLE
+0071   20C2           00194         CALL ATRASO ;DELAY DE 1S
+0072   1206           00195         BCF QUARTO
+0073   1686           00196         BSF CONTROLE
+0074   1606           00197         BSF QUARTO
+0075   20C2           00198         CALL ATRASO ;DELAY DE 1S
+0076   1286           00199         BCF CONTROLE
+0077   20C2           00200         CALL ATRASO ;DELAY DE 1S
+0078   1206           00201         BCF QUARTO
+0079   1686           00202         BSF CONTROLE
+007A   1606           00203         BSF QUARTO
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE  5
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-0081   1306           00204         BCF PRESSIONADO
-0082   1406           00205         BSF TERREO
-0083   20B6           00206         CALL ATRASO ;DELAY DE 1S
-0084   1286           00207         BCF CONTROLE
-0085   20B6           00208         CALL ATRASO ;DELAY DE 1S
-0086   1006           00209         BCF TERREO
-0087   1686           00210         BSF CONTROLE
-0088   1406           00211         BSF TERREO
-0089   20B6           00212         CALL ATRASO ;DELAY DE 1S
-008A   1286           00213         BCF CONTROLE
-008B   20B6           00214         CALL ATRASO ;DELAY DE 1S
-008C   1006           00215         BCF TERREO
-008D   1686           00216         BSF CONTROLE
-008E   1406           00217         BSF TERREO
-008F   20B6           00218         CALL ATRASO ;DELAY DE 1S
-0090   1286           00219         BCF CONTROLE
-0091   20B6           00220         CALL ATRASO ;DELAY DE 1S
-0092   1006           00221         BCF TERREO
-0093   1686           00222         BSF CONTROLE
-0094   1406           00223         BSF TERREO
-0095   20B6           00224         CALL ATRASO ;DELAY DE 1S
-0096   1286           00225         BCF CONTROLE
-0097   20B6           00226         CALL ATRASO ;DELAY DE 1S
-0098   1006           00227         BCF TERREO
-0099   1686           00228         BSF CONTROLE
-009A   280C           00229         GOTO REPETE
-                      00230 
-009B                  00231 PRIMEIRO_EMERGENCIA
-009B   1306           00232         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
-009C   1486           00233         BSF PRIMEIRO
-009D   1686           00234         BSF CONTROLE
-009E   20B6           00235         CALL ATRASO ;DELAY DE 1S
-009F   1286           00236         BCF CONTROLE
-00A0   20B6           00237         CALL ATRASO ;DELAY DE 1S
-00A1   1086           00238         BCF PRIMEIRO
-00A2   1686           00239         BSF CONTROLE
-00A3   2881           00240         GOTO TERREO_EMERGENCIA
-                      00241 
-00A4                  00242 SEGUNDO_EMERGENCIA
-00A4   1306           00243         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
-00A5   1506           00244         BSF SEGUNDO
-00A6   1686           00245         BSF CONTROLE
-00A7   20B6           00246         CALL ATRASO ;DELAY DE 1S
-00A8   1286           00247         BCF CONTROLE
-00A9   20B6           00248         CALL ATRASO ;DELAY DE 1S
-00AA   1106           00249         BCF SEGUNDO
-00AB   1686           00250         BSF CONTROLE
-00AC   289B           00251         GOTO PRIMEIRO_EMERGENCIA
-                      00252 
-00AD                  00253 TERCEIRO_EMERGENCIA
-00AD   1306           00254         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
-00AE   1586           00255         BSF TERCEIRO
-00AF   1686           00256         BSF CONTROLE
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE  6
+007B   20C2           00204         CALL ATRASO ;DELAY DE 1S
+007C   1286           00205         BCF CONTROLE
+007D   20C2           00206         CALL ATRASO ;DELAY DE 1S
+007E   1206           00207         BCF QUARTO
+007F   1686           00208         BSF CONTROLE
+0080   1606           00209         BSF QUARTO
+0081   20C2           00210         CALL ATRASO ;DELAY DE 1S
+0082   1286           00211         BCF CONTROLE
+0083   20C2           00212         CALL ATRASO ;DELAY DE 1S
+0084   1206           00213         BCF QUARTO
+0085   1686           00214         BSF CONTROLE
+0086   1606           00215         BSF QUARTO
+0087   20C2           00216         CALL ATRASO ;DELAY DE 1S
+0088   1286           00217         BCF CONTROLE
+0089   20C2           00218         CALL ATRASO ;DELAY DE 1S
+008A   1206           00219         BCF QUARTO
+008B   1686           00220         BSF CONTROLE
+008C   0008           00221         RETURN
+                      00222 
+008D                  00223 TERREO_EMERGENCIA
+008D   1306           00224         BCF PRESSIONADO
+008E   1406           00225         BSF TERREO
+008F   20C2           00226         CALL ATRASO ;DELAY DE 1S
+0090   1286           00227         BCF CONTROLE
+0091   20C2           00228         CALL ATRASO ;DELAY DE 1S
+0092   1006           00229         BCF TERREO
+0093   1686           00230         BSF CONTROLE
+0094   1406           00231         BSF TERREO
+0095   20C2           00232         CALL ATRASO ;DELAY DE 1S
+0096   1286           00233         BCF CONTROLE
+0097   20C2           00234         CALL ATRASO ;DELAY DE 1S
+0098   1006           00235         BCF TERREO
+0099   1686           00236         BSF CONTROLE
+009A   1406           00237         BSF TERREO
+009B   20C2           00238         CALL ATRASO ;DELAY DE 1S
+009C   1286           00239         BCF CONTROLE
+009D   20C2           00240         CALL ATRASO ;DELAY DE 1S
+009E   1006           00241         BCF TERREO
+009F   1686           00242         BSF CONTROLE
+00A0   1406           00243         BSF TERREO
+00A1   20C2           00244         CALL ATRASO ;DELAY DE 1S
+00A2   1286           00245         BCF CONTROLE
+00A3   20C2           00246         CALL ATRASO ;DELAY DE 1S
+00A4   1006           00247         BCF TERREO
+00A5   1686           00248         BSF CONTROLE
+00A6   280C           00249         GOTO REPETE
+                      00250 
+00A7                  00251 PRIMEIRO_EMERGENCIA
+00A7   1306           00252         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
+00A8   1486           00253         BSF PRIMEIRO
+00A9   1686           00254         BSF CONTROLE
+00AA   20C2           00255         CALL ATRASO ;DELAY DE 1S
+00AB   1286           00256         BCF CONTROLE
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE  6
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-00B0   20B6           00257         CALL ATRASO ;DELAY DE 1S
-00B1   1286           00258         BCF CONTROLE
-00B2   20B6           00259         CALL ATRASO ;DELAY DE 1S
-00B3   1186           00260         BCF TERCEIRO
-00B4   1686           00261         BSF CONTROLE
-00B5   28A4           00262         GOTO SEGUNDO_EMERGENCIA
-                      00263         
-00B6                  00264 ATRASO
-                      00265         ;BTFSC PRESSIONADO ;SE O LED DE PRESSIONADO ESTIVER EM 1 NÃO TESTA SE O BOTÃO ESTÁ PRESSIONADO  
+00AC   20C2           00257         CALL ATRASO ;DELAY DE 1S
+00AD   1086           00258         BCF PRIMEIRO
+00AE   1686           00259         BSF CONTROLE
+00AF   288D           00260         GOTO TERREO_EMERGENCIA
+                      00261 
+00B0                  00262 SEGUNDO_EMERGENCIA
+00B0   1306           00263         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
+00B1   1506           00264         BSF SEGUNDO
+00B2   1686           00265         BSF CONTROLE
+00B3   20C2           00266         CALL ATRASO ;DELAY DE 1S
+00B4   1286           00267         BCF CONTROLE
+00B5   20C2           00268         CALL ATRASO ;DELAY DE 1S
+00B6   1106           00269         BCF SEGUNDO
+00B7   1686           00270         BSF CONTROLE
+00B8   28A7           00271         GOTO PRIMEIRO_EMERGENCIA
+                      00272 
+00B9                  00273 TERCEIRO_EMERGENCIA
+00B9   1306           00274         BCF PRESSIONADO ;LIMPA O BOTÃO DE PRESSIONADO
+00BA   1586           00275         BSF TERCEIRO
+00BB   1686           00276         BSF CONTROLE
+00BC   20C2           00277         CALL ATRASO ;DELAY DE 1S
+00BD   1286           00278         BCF CONTROLE
+00BE   20C2           00279         CALL ATRASO ;DELAY DE 1S
+00BF   1186           00280         BCF TERCEIRO
+00C0   1686           00281         BSF CONTROLE
+00C1   28B0           00282         GOTO SEGUNDO_EMERGENCIA
+                      00283         
+00C2                  00284 ATRASO
+                      00285         ;BTFSC PRESSIONADO ;SE O LED DE PRESSIONADO ESTIVER EM 1 NÃO TESTA SE O BOTÃO ESTÁ PRESSIONADO  
                                             
-                      00266         ;RETURN
-                      00267         ;SETAR CONTADORES ;O PRIMEIRO COMENTARIO QUE VALE A ULTIMA IMPLEMENTAÇÃO        
-00B6   3019           00268         MOVLW   25      ;3 ;7
-00B7   00A0           00269         MOVWF   CONTADOR1
-                      00270         ;;MOVLW 5 ;25 ;22
-                      00271         ;;MOVWF CONTADOR2
-                      00272         ;;MOVLW   2 ;15;67
-                      00273         ;;MOVWF CONTADOR3
-00B8   0000           00274         NOP ;NOP PARA DEBUG
-                      00275 
-00B9                  00276 ATRASO1                         
-00B9   1F06           00277         BTFSS PRESSIONADO ;SE O LED DE PRESSIONADO ESTIVER EM 1 NÃO TESTA SE O BOTÃO ESTÁ PRESSIONADO
-00BA   20C8           00278         CALL TESTAR_BOTAO
+                      00286         ;RETURN
+                      00287         ;SETAR CONTADORES ;O PRIMEIRO COMENTARIO QUE VALE A ULTIMA IMPLEMENTAÇÃO        
+00C2   3019           00288         MOVLW   25      ;3 ;7
+00C3   00A0           00289         MOVWF   CONTADOR1
+                      00290         ;;MOVLW 5 ;25 ;22
+                      00291         ;;MOVWF CONTADOR2
+                      00292         ;;MOVLW   2 ;15;67
+                      00293         ;;MOVWF CONTADOR3
+00C4   0000           00294         NOP ;NOP PARA DEBUG
+                      00295 
+00C5                  00296 ATRASO1                         
+00C5   1F06           00297         BTFSS PRESSIONADO ;SE O LED DE PRESSIONADO ESTIVER EM 1 NÃO TESTA SE O BOTÃO ESTÁ PRESSIONADO
+00C6   20D4           00298         CALL TESTAR_BOTAO
 Message[305]: Using default destination of 1 (file).
-00BB   0BA0           00279         DECFSZ  CONTADOR1 ;TESTAR SE CONTADOR1 < 0
-00BC   28B9           00280         GOTO ATRASO1
-                      00281 
-00BD   0008           00282         RETURN ;RETORNAR PARA ONDE O ATRASO FOI CHAMADO
-                      00283 
-00BE                  00284 ATRASO2
-00BE   1F06           00285         BTFSS PRESSIONADO ;SE O LED DE PRESSIONADO ESTIVER EM 1 NÃO TESTA SE O BOTÃO ESTÁ PRESSIONADO
-00BF   20C8           00286         CALL TESTAR_BOTAO
+00C7   0BA0           00299         DECFSZ  CONTADOR1 ;TESTAR SE CONTADOR1 < 0
+00C8   28C5           00300         GOTO ATRASO1
+                      00301 
+00C9   0008           00302         RETURN ;RETORNAR PARA ONDE O ATRASO FOI CHAMADO
+                      00303 
+00CA                  00304 ATRASO2
+00CA   1F06           00305         BTFSS PRESSIONADO ;SE O LED DE PRESSIONADO ESTIVER EM 1 NÃO TESTA SE O BOTÃO ESTÁ PRESSIONADO
+00CB   20D4           00306         CALL TESTAR_BOTAO
 Message[305]: Using default destination of 1 (file).
-00C0   0BA1           00287         DECFSZ CONTADOR2 ;TESTAR SE CONTADOR1 < 0
-00C1   28C3           00288         GOTO ATRASO3 ;ATRASO2
-00C2   28B9           00289         GOTO ATRASO1
-                      00290 
-00C3                  00291 ATRASO3
-00C3   1F06           00292         BTFSS PRESSIONADO ;SE O LED DE PRESSIONADO ESTIVER EM 1 NÃO TESTA SE O BOTÃO ESTÁ PRESSIONADO
-00C4   20C8           00293         CALL TESTAR_BOTAO
-Message[305]: Using default destination of 1 (file).
-00C5   0BA2           00294         DECFSZ CONTADOR3 ;TESTAR SE CONTADOR1 < 0
-00C6   28C3           00295         GOTO ATRASO3
-00C7   28BE           00296         GOTO ATRASO2    
-                      00297         
-00C8                  00298 TESTAR_BOTAO
-00C8   1905           00299         BTFSC   BOTAO           ;O BOTÃO ESTÁ PRESSIONADO?
-00C9   28D8           00300         GOTO    ATRASO_BOTAO ; NAO, FAZ UM ATRASO DE 30MSECS E VOLTA ONDE FOI CHAMADO
-00CA   28CC           00301         GOTO    BOTAO_PRESSIONADO       ;SIM, ENTÃO TRATA BOTÃO PRESSIONADO
-00CB                  00302 CONTINUA
-00CB   0008           00303         RETURN
-                      00304 
-00CC                  00305 BOTAO_PRESSIONADO
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE  7
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE  7
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-00CC   1706           00306         BSF PRESSIONADO
-00CD   1686           00307         BSF CONTROLE
-00CE   20E2           00308         CALL ATRASO_PRESSIONADO
-00CF   1286           00309         BCF CONTROLE
-00D0   20E2           00310         CALL ATRASO_PRESSIONADO
-                      00311         ;;ESSES CONTADORES SÃO SETADOS EM 1 PARA QUANDO VOLTAREM PRO SEUS ATRASO ELES SERÃO DECREMENTADO
+00CC   0BA1           00307         DECFSZ CONTADOR2 ;TESTAR SE CONTADOR1 < 0
+00CD   28CF           00308         GOTO ATRASO3 ;ATRASO2
+00CE   28C5           00309         GOTO ATRASO1
+                      00310 
+00CF                  00311 ATRASO3
+00CF   1F06           00312         BTFSS PRESSIONADO ;SE O LED DE PRESSIONADO ESTIVER EM 1 NÃO TESTA SE O BOTÃO ESTÁ PRESSIONADO
+00D0   20D4           00313         CALL TESTAR_BOTAO
+Message[305]: Using default destination of 1 (file).
+00D1   0BA2           00314         DECFSZ CONTADOR3 ;TESTAR SE CONTADOR1 < 0
+00D2   28CF           00315         GOTO ATRASO3
+00D3   28CA           00316         GOTO ATRASO2    
+                      00317         
+00D4                  00318 TESTAR_BOTAO
+00D4   1905           00319         BTFSC   BOTAO           ;O BOTÃO ESTÁ PRESSIONADO?
+00D5   28E4           00320         GOTO    ATRASO_BOTAO ; NAO, FAZ UM ATRASO DE 30MSECS E VOLTA ONDE FOI CHAMADO
+00D6   28D8           00321         GOTO    BOTAO_PRESSIONADO       ;SIM, ENTÃO TRATA BOTÃO PRESSIONADO
+00D7                  00322 CONTINUA
+00D7   0008           00323         RETURN
+                      00324 
+00D8                  00325 BOTAO_PRESSIONADO
+00D8   1706           00326         BSF PRESSIONADO
+00D9   1686           00327         BSF CONTROLE
+00DA   20EE           00328         CALL ATRASO_PRESSIONADO
+00DB   1286           00329         BCF CONTROLE
+00DC   20EE           00330         CALL ATRASO_PRESSIONADO
+                      00331         ;;ESSES CONTADORES SÃO SETADOS EM 1 PARA QUANDO VOLTAREM PRO SEUS ATRASO ELES SERÃO DECREMENTADO
                             S EM 1, VIRARÃO 0 E SAIRÃO DO LOOP
-00D1   3001           00312         MOVLW   1       ;3 ;7
-00D2   00A0           00313         MOVWF   CONTADOR1
-00D3   3001           00314         MOVLW   1 ;25 ;22
-00D4   00A1           00315         MOVWF   CONTADOR2
-00D5   3001           00316         MOVLW   1 ;15;67
-00D6   00A2           00317         MOVWF   CONTADOR3
-00D7   28CB           00318         GOTO CONTINUA ;VOLTA DE ONDE CHAMOU, QUE IRÁ VOLTAR PARA OS ATRASOS E SAIR
-                      00319 
-                      00320 ;;ATRASO DO BOTÃO DE 30MSECS
-00D8                  00321 ATRASO_BOTAO
-00D8   3035           00322         MOVLW   53 ;40 ;54
-00D9   00A3           00323         MOVWF   CONTADOR_BOTAO1
-00DA   30CA           00324         MOVLW   202 ;40 ;1
-00DB   00A4           00325         MOVWF   CONTADOR_BOTAO2
-                      00326         
-00DC                  00327 ATRASO_BOTAO1
+00DD   3001           00332         MOVLW   1       ;3 ;7
+00DE   00A0           00333         MOVWF   CONTADOR1
+00DF   3001           00334         MOVLW   1 ;25 ;22
+00E0   00A1           00335         MOVWF   CONTADOR2
+00E1   3001           00336         MOVLW   1 ;15;67
+00E2   00A2           00337         MOVWF   CONTADOR3
+00E3   28D7           00338         GOTO CONTINUA ;VOLTA DE ONDE CHAMOU, QUE IRÁ VOLTAR PARA OS ATRASOS E SAIR
+                      00339 
+                      00340 ;;ATRASO DO BOTÃO DE 30MSECS
+00E4                  00341 ATRASO_BOTAO
+00E4   3035           00342         MOVLW   53 ;40 ;54
+00E5   00A3           00343         MOVWF   CONTADOR_BOTAO1
+00E6   30CA           00344         MOVLW   202 ;40 ;1
+00E7   00A4           00345         MOVWF   CONTADOR_BOTAO2
+                      00346         
+00E8                  00347 ATRASO_BOTAO1
 Message[305]: Using default destination of 1 (file).
-00DC   0BA3           00328         DECFSZ CONTADOR_BOTAO1 ;TESTAR SE CONTADOR1 < 0
-00DD   28DF           00329         GOTO ATRASO_BOTAO2
-00DE   28CB           00330         GOTO CONTINUA ;RETORNO PARA ONDE FOI CHAMADO
-                      00331 
-00DF                  00332 ATRASO_BOTAO2
+00E8   0BA3           00348         DECFSZ CONTADOR_BOTAO1 ;TESTAR SE CONTADOR1 < 0
+00E9   28EB           00349         GOTO ATRASO_BOTAO2
+00EA   28D7           00350         GOTO CONTINUA ;RETORNO PARA ONDE FOI CHAMADO
+                      00351 
+00EB                  00352 ATRASO_BOTAO2
 Message[305]: Using default destination of 1 (file).
-00DF   0BA4           00333         DECFSZ CONTADOR_BOTAO2 ;TESTAR SE CONTADOR1 < 0
-00E0   28DF           00334         GOTO ATRASO_BOTAO2
-00E1   28DC           00335         GOTO ATRASO_BOTAO1
-                      00336 
-                      00337 ;;ATRASO PARA QUANDO O BOTÃO ESTÁ PRESSIONADO
-00E2                  00338 ATRASO_PRESSIONADO
-                      00339         ;SETAR CONTADORES 
-                      00340         ;O PRIMEIRO COMENTARIO QUE VALE A ULTIMA IMPLEMENTAÇÃO  
-00E2   3007           00341         MOVLW   7       ;3 ;7
-00E3   00A0           00342         MOVWF   CONTADOR1
-00E4   3016           00343         MOVLW   22 ;25 ;22
-00E5   00A1           00344         MOVWF   CONTADOR2
-00E6   3044           00345         MOVLW   68 ;15;67
-00E7   00A2           00346         MOVWF   CONTADOR3
-                      00347 ;       NOP ;NOP PARA DEBUG
-                      00348 
-00E8                  00349 ATRASO_PRESSIONADO1                             
-Message[305]: Using default destination of 1 (file).
-00E8   0BA0           00350         DECFSZ  CONTADOR1 ;TESTAR SE CONTADOR1 < 0
-00E9   28EB           00351         GOTO ATRASO_PRESSIONADO2
-                      00352 
-00EA   0008           00353         RETURN ;RETORNAR PARA ONDE O ATRASO FOI CHAMADO
-                      00354 
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE  8
+00EB   0BA4           00353         DECFSZ CONTADOR_BOTAO2 ;TESTAR SE CONTADOR1 < 0
+00EC   28EB           00354         GOTO ATRASO_BOTAO2
+00ED   28E8           00355         GOTO ATRASO_BOTAO1
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE  8
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-00EB                  00355 ATRASO_PRESSIONADO2
+                      00356 
+                      00357 ;;ATRASO PARA QUANDO O BOTÃO ESTÁ PRESSIONADO
+00EE                  00358 ATRASO_PRESSIONADO
+                      00359         ;SETAR CONTADORES 
+                      00360         ;O PRIMEIRO COMENTARIO QUE VALE A ULTIMA IMPLEMENTAÇÃO  
+00EE   3007           00361         MOVLW   7       ;3 ;7
+00EF   00A0           00362         MOVWF   CONTADOR1
+00F0   3016           00363         MOVLW   22 ;25 ;22
+00F1   00A1           00364         MOVWF   CONTADOR2
+00F2   3044           00365         MOVLW   68 ;15;67
+00F3   00A2           00366         MOVWF   CONTADOR3
+                      00367 ;       NOP ;NOP PARA DEBUG
+                      00368 
+00F4                  00369 ATRASO_PRESSIONADO1                             
 Message[305]: Using default destination of 1 (file).
-00EB   0BA1           00356         DECFSZ CONTADOR2 ;TESTAR SE CONTADOR1 < 0
-00EC   28EE           00357         GOTO ATRASO_PRESSIONADO3
-00ED   28E8           00358         GOTO ATRASO_PRESSIONADO1
-                      00359 
-00EE                  00360 ATRASO_PRESSIONADO3
+00F4   0BA0           00370         DECFSZ  CONTADOR1 ;TESTAR SE CONTADOR1 < 0
+00F5   28F7           00371         GOTO ATRASO_PRESSIONADO2
+                      00372 
+00F6   0008           00373         RETURN ;RETORNAR PARA ONDE O ATRASO FOI CHAMADO
+                      00374 
+00F7                  00375 ATRASO_PRESSIONADO2
 Message[305]: Using default destination of 1 (file).
-00EE   0BA2           00361         DECFSZ CONTADOR3 ;TESTAR SE CONTADOR1 < 0
-00EF   28EE           00362         GOTO ATRASO_PRESSIONADO3
-00F0   28EB           00363         GOTO ATRASO_PRESSIONADO2
-                      00364 
+00F7   0BA1           00376         DECFSZ CONTADOR2 ;TESTAR SE CONTADOR1 < 0
+00F8   28FA           00377         GOTO ATRASO_PRESSIONADO3
+00F9   28F4           00378         GOTO ATRASO_PRESSIONADO1
+                      00379 
+00FA                  00380 ATRASO_PRESSIONADO3
+Message[305]: Using default destination of 1 (file).
+00FA   0BA2           00381         DECFSZ CONTADOR3 ;TESTAR SE CONTADOR1 < 0
+00FB   28FA           00382         GOTO ATRASO_PRESSIONADO3
+00FC   28F7           00383         GOTO ATRASO_PRESSIONADO2
+                      00384 
 Warning[205]: Found directive in column 1. (END)
-                      00365 END
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE  9
+                      00385 END
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE  9
 
 
 SYMBOL TABLE
   LABEL                             VALUE 
 
 ADEN                              00000003
-ATRASO                            000000B6
-ATRASO1                           000000B9
-ATRASO2                           000000BE
-ATRASO3                           000000C3
-ATRASO_BOTAO                      000000D8
-ATRASO_BOTAO1                     000000DC
-ATRASO_BOTAO2                     000000DF
-ATRASO_PRESSIONADO                000000E2
-ATRASO_PRESSIONADO1               000000E8
-ATRASO_PRESSIONADO2               000000EB
-ATRASO_PRESSIONADO3               000000EE
+ATRASO                            000000C2
+ATRASO1                           000000C5
+ATRASO2                           000000CA
+ATRASO3                           000000CF
+ATRASO_BOTAO                      000000E4
+ATRASO_BOTAO1                     000000E8
+ATRASO_BOTAO2                     000000EB
+ATRASO_PRESSIONADO                000000EE
+ATRASO_PRESSIONADO1               000000F4
+ATRASO_PRESSIONADO2               000000F7
+ATRASO_PRESSIONADO3               000000FA
 BOTAO                             PORTA,2
-BOTAO_PRESSIONADO                 000000CC
+BOTAO_PRESSIONADO                 000000D8
 BRGH                              00000002
 C                                 00000000
 C1INV                             00000004
@@ -480,7 +500,7 @@ CONTADOR2                         00000021
 CONTADOR3                         00000022
 CONTADOR_BOTAO1                   00000023
 CONTADOR_BOTAO2                   00000024
-CONTINUA                          000000CB
+CONTINUA                          000000D7
 CONTROLE                          PORTB,5
 CREN                              00000004
 CSRC                              00000007
@@ -490,7 +510,7 @@ EECON1                            0000009C
 EECON2                            0000009D
 EEDATA                            0000009A
 EEIE                              00000007
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE 10
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE 10
 
 
 SYMBOL TABLE
@@ -530,14 +550,14 @@ PORTB                             00000006
 PR2                               00000092
 PRESSIONADO                       PORTB,6
 PRIMEIRO                          PORTB,1
-PRIMEIROANDAR                     00000025
-PRIMEIRO_EMERGENCIA               0000009B
+PRIMEIROANDAR                     00000031
+PRIMEIRO_EMERGENCIA               000000A7
 PS0                               00000000
 PS1                               00000001
 PS2                               00000002
 PSA                               00000003
 QUARTO                            PORTB,4
-QUARTOANDAR                       00000061
+QUARTOANDAR                       0000006D
 RBIE                              00000003
 RBIF                              00000000
 RCIE                              00000005
@@ -549,7 +569,7 @@ REPETE                            0000000C
 RP0                               00000005
 RP1                               00000006
 RX9                               00000006
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE 11
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE 11
 
 
 SYMBOL TABLE
@@ -557,8 +577,8 @@ SYMBOL TABLE
 
 RX9D                              00000000
 SEGUNDO                           PORTB,2
-SEGUNDOANDAR                      00000033
-SEGUNDO_EMERGENCIA                000000A4
+SEGUNDOANDAR                      0000003F
+SEGUNDO_EMERGENCIA                000000B0
 SPBRG                             00000099
 SPEN                              00000007
 SREN                              00000005
@@ -575,13 +595,13 @@ T1OSCEN                           00000003
 T2CKPS0                           00000000
 T2CKPS1                           00000001
 T2CON                             00000012
-TER                               0000001C
+TER                               00000028
 TERCEIRO                          PORTB,3
-TERCEIROANDAR                     00000047
-TERCEIRO_EMERGENCIA               000000AD
+TERCEIROANDAR                     00000053
+TERCEIRO_EMERGENCIA               000000B9
 TERREO                            PORTB,0
-TERREO_EMERGENCIA                 00000081
-TESTAR_BOTAO                      000000C8
+TERREO_EMERGENCIA                 0000008D
+TESTAR_BOTAO                      000000D4
 TMR0                              00000001
 TMR1CS                            00000001
 TMR1H                             0000000F
@@ -608,7 +628,7 @@ TXIF                              00000004
 TXREG                             00000019
 TXSTA                             00000098
 VR0                               00000000
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE 12
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE 12
 
 
 SYMBOL TABLE
@@ -656,7 +676,7 @@ _WDT_ON                           00003FFF
 _XT_OSC                           00003FED
 __16F628A                         00000001
 __DEBUG                           1
-MPASM  5.35                      ELEVATOR.ASM   6-5-2019  20:13:52         PAGE 13
+MPASM  5.35                      ELEVATOR.ASM   6-7-2019  15:31:45         PAGE 13
 
 
 MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
@@ -665,13 +685,13 @@ MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
 0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
 0040 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
 0080 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
-00C0 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX X---------------
+00C0 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXX---
 2000 : -------X-------- ---------------- ---------------- ----------------
 
 All other memory blocks unused.
 
-Program Memory Words Used:   241
-Program Memory Words Free:  1807
+Program Memory Words Used:   253
+Program Memory Words Free:  1795
 
 
 Errors   :     0

@@ -1,11 +1,11 @@
 MPLINK 4.35, Linker
-Linker Map File - Created Wed Jun 05 20:13:54 2019
+Linker Map File - Created Fri Jun 07 15:31:46 2019
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                    .org_0       code   0x000000    program   0x000000
-                   .org_1       code   0x000000    program   0x0001e2
+                   .org_1       code   0x000000    program   0x0001fa
   .config_2007_ELEVATOR.O       code   0x002007    program   0x000002
 
 
@@ -13,70 +13,70 @@ Linker Map File - Created Wed Jun 05 20:13:54 2019
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x0000f0      
+                            0x000000    0x0000fc      
                             0x002007    0x002007      
-            242 out of 2183 program addresses used, program memory utilization is 11%
+            254 out of 2183 program addresses used, program memory utilization is 11%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   ATRASO   0x0000b6    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                  ATRASO1   0x0000b9    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                  ATRASO2   0x0000be    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                  ATRASO3   0x0000c3    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-             ATRASO_BOTAO   0x0000d8    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO1   0x0000dc    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO2   0x0000df    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-       ATRASO_PRESSIONADO   0x0000e2    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO1   0x0000e8    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO2   0x0000eb    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO3   0x0000ee    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-        BOTAO_PRESSIONADO   0x0000cc    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                 CONTINUA   0x0000cb    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                   INICIO   0x000001    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            PRIMEIROANDAR   0x000025    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      PRIMEIRO_EMERGENCIA   0x00009b    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-              QUARTOANDAR   0x000061    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                   REPETE   0x00000c    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-             SEGUNDOANDAR   0x000033    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-       SEGUNDO_EMERGENCIA   0x0000a4    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                      TER   0x00001c    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            TERCEIROANDAR   0x000047    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      TERCEIRO_EMERGENCIA   0x0000ad    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-        TERREO_EMERGENCIA   0x000081    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-             TESTAR_BOTAO   0x0000c8    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+                   ATRASO   0x0000c2    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO1   0x0000c5    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO2   0x0000ca    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO3   0x0000cf    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             ATRASO_BOTAO   0x0000e4    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO1   0x0000e8    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO2   0x0000eb    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+       ATRASO_PRESSIONADO   0x0000ee    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO1   0x0000f4    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO2   0x0000f7    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO3   0x0000fa    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+        BOTAO_PRESSIONADO   0x0000d8    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                 CONTINUA   0x0000d7    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                   INICIO   0x000001    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            PRIMEIROANDAR   0x000031    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+      PRIMEIRO_EMERGENCIA   0x0000a7    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+              QUARTOANDAR   0x00006d    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                   REPETE   0x00000c    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             SEGUNDOANDAR   0x00003f    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+       SEGUNDO_EMERGENCIA   0x0000b0    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                      TER   0x000028    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            TERCEIROANDAR   0x000053    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+      TERCEIRO_EMERGENCIA   0x0000b9    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+        TERREO_EMERGENCIA   0x00008d    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             TESTAR_BOTAO   0x0000d4    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
 
 
 
                               Symbols - Sorted by Address
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   INICIO   0x000001    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                   REPETE   0x00000c    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                      TER   0x00001c    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            PRIMEIROANDAR   0x000025    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-             SEGUNDOANDAR   0x000033    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            TERCEIROANDAR   0x000047    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-              QUARTOANDAR   0x000061    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-        TERREO_EMERGENCIA   0x000081    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      PRIMEIRO_EMERGENCIA   0x00009b    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-       SEGUNDO_EMERGENCIA   0x0000a4    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      TERCEIRO_EMERGENCIA   0x0000ad    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                   ATRASO   0x0000b6    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                  ATRASO1   0x0000b9    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                  ATRASO2   0x0000be    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                  ATRASO3   0x0000c3    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-             TESTAR_BOTAO   0x0000c8    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-                 CONTINUA   0x0000cb    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-        BOTAO_PRESSIONADO   0x0000cc    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-             ATRASO_BOTAO   0x0000d8    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO1   0x0000dc    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-            ATRASO_BOTAO2   0x0000df    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-       ATRASO_PRESSIONADO   0x0000e2    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO1   0x0000e8    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO2   0x0000eb    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
-      ATRASO_PRESSIONADO3   0x0000ee    program     static C:\Users\James1515\Desktop\git\PIC\elevator_project\elevator.asm
+                   INICIO   0x000001    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                   REPETE   0x00000c    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                      TER   0x000028    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            PRIMEIROANDAR   0x000031    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             SEGUNDOANDAR   0x00003f    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            TERCEIROANDAR   0x000053    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+              QUARTOANDAR   0x00006d    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+        TERREO_EMERGENCIA   0x00008d    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+      PRIMEIRO_EMERGENCIA   0x0000a7    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+       SEGUNDO_EMERGENCIA   0x0000b0    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+      TERCEIRO_EMERGENCIA   0x0000b9    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                   ATRASO   0x0000c2    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO1   0x0000c5    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO2   0x0000ca    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                  ATRASO3   0x0000cf    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             TESTAR_BOTAO   0x0000d4    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+                 CONTINUA   0x0000d7    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+        BOTAO_PRESSIONADO   0x0000d8    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+             ATRASO_BOTAO   0x0000e4    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO1   0x0000e8    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+            ATRASO_BOTAO2   0x0000eb    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+       ATRASO_PRESSIONADO   0x0000ee    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO1   0x0000f4    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO2   0x0000f7    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
+      ATRASO_PRESSIONADO3   0x0000fa    program     static C:\Users\1143053\Documents\PIC\elevator_project\elevator.asm
 
 

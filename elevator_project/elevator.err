@@ -1,13 +1,13 @@
-Warning[205] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 2 : Found directive in column 1. (LIST)
-Warning[205] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 3 : Found directive in column 1. (RADIX)
-Message[302] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 57 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 58 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[305] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 279 : Using default destination of 1 (file).
-Message[305] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 287 : Using default destination of 1 (file).
-Message[305] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 294 : Using default destination of 1 (file).
-Message[305] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 328 : Using default destination of 1 (file).
-Message[305] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 333 : Using default destination of 1 (file).
-Message[305] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 350 : Using default destination of 1 (file).
-Message[305] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 356 : Using default destination of 1 (file).
-Message[305] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 361 : Using default destination of 1 (file).
-Warning[205] C:\USERS\JAMES1515\DESKTOP\GIT\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 365 : Found directive in column 1. (END)
+Warning[205] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 2 : Found directive in column 1. (LIST)
+Warning[205] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 3 : Found directive in column 1. (RADIX)
+Message[302] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 57 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 58 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 299 : Using default destination of 1 (file).
+Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 307 : Using default destination of 1 (file).
+Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 314 : Using default destination of 1 (file).
+Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 348 : Using default destination of 1 (file).
+Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 353 : Using default destination of 1 (file).
+Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 370 : Using default destination of 1 (file).
+Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 376 : Using default destination of 1 (file).
+Message[305] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 381 : Using default destination of 1 (file).
+Warning[205] C:\USERS\1143053\DOCUMENTS\PIC\ELEVATOR_PROJECT\ELEVATOR.ASM 385 : Found directive in column 1. (END)
